@@ -7,5 +7,8 @@ namespace StaffSalaries.Model.Employees
 {
     public interface IEmployeeRepository
     {
+        Employee FindBy(int employeeId);
+        int Update(Employee employee);
+        int GetTotalNumberWith(int jobId);
     }
 }

@@ -9,7 +9,7 @@ namespace StaffSalaries.Service.Implementations
 {
     public class WebserviceEmployeeJobService : IEmployeeJobService
     {
-        public JobListResponse GetJobList(JobListRequest jobListRequest)
+        public JobListResponse GetJobList()
         {
             throw new NotImplementedException();
         }

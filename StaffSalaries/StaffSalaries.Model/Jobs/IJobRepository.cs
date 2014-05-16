@@ -7,5 +7,6 @@ namespace StaffSalaries.Model.Jobs
 {
     public interface IJobRepository
     {
+        IEnumerable<Job> FindAll();
     }
 }

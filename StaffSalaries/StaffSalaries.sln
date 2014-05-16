@@ -11,6 +11,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaffSalaries.Repository", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaffSalaries.Service", "StaffSalaries.Service\StaffSalaries.Service.csproj", "{AA93F579-0AE9-4434-B718-BFB4CE376023}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Data Access Layer", "1. Data Access Layer", "{9C197117-ED2D-4692-90DC-F14DE208BCB5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Business Logic Layer", "2. Business Logic Layer", "{F200C7B8-ED54-43E9-9E77-1D5E64FD6639}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3. Service Layer", "3. Service Layer", "{7A6CF27B-443E-49CA-B648-D4A7A08F33C7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5. Presentation Layer", "5. Presentation Layer", "{DF8682A9-9E93-46BE-B40E-9122886DEDB8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6. User Experience Layer", "6. User Experience Layer", "{6521EB6C-3D03-4806-B82F-5C5C12F29ABB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,5 +50,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{90675EDF-9905-4BAB-8451-24470212285F} = {9C197117-ED2D-4692-90DC-F14DE208BCB5}
+		{91FEA08D-0DDD-461A-8133-7080D66166B0} = {F200C7B8-ED54-43E9-9E77-1D5E64FD6639}
+		{AA93F579-0AE9-4434-B718-BFB4CE376023} = {7A6CF27B-443E-49CA-B648-D4A7A08F33C7}
+		{4F47F827-C50F-4534-88CD-13327729ED74} = {DF8682A9-9E93-46BE-B40E-9122886DEDB8}
+		{65F3653F-DCB5-439B-9FBA-6F48D043A857} = {6521EB6C-3D03-4806-B82F-5C5C12F29ABB}
 	EndGlobalSection
 EndGlobal
