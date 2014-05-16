@@ -7,7 +7,8 @@ namespace StaffSalaries.Model.Employees
 {
     public enum EmployeesOrderBy
     {
-        Ascending = 0,
-        Descending = 1
+        None = 0,
+        Ascending = 1,
+        Descending = 2
     }
 }

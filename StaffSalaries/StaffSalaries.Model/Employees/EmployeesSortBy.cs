@@ -7,7 +7,8 @@ namespace StaffSalaries.Model.Employees
 {
     public enum EmployeesSortBy
     {
-        FullName = 0,
-        Salary = 1
+        None = 0,
+        FullName = 1,
+        Salary = 2
     }
 }
