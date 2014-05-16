@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaffSalaries.Model", "Staf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaffSalaries.Repository", "StaffSalaries.Repository\StaffSalaries.Repository.csproj", "{90675EDF-9905-4BAB-8451-24470212285F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaffSalaries.Service", "StaffSalaries.Service\StaffSalaries.Service.csproj", "{AA93F579-0AE9-4434-B718-BFB4CE376023}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{90675EDF-9905-4BAB-8451-24470212285F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90675EDF-9905-4BAB-8451-24470212285F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90675EDF-9905-4BAB-8451-24470212285F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA93F579-0AE9-4434-B718-BFB4CE376023}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA93F579-0AE9-4434-B718-BFB4CE376023}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA93F579-0AE9-4434-B718-BFB4CE376023}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA93F579-0AE9-4434-B718-BFB4CE376023}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
