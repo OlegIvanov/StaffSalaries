@@ -33,12 +33,21 @@ namespace StaffSalaries.Service.Implementations
         {
             EmployeeListResponse employeeListResponse = new EmployeeListResponse();
 
+            employeeListResponse.Employees = _employeeRepository.FindBy(employeeListRequest.EmployeeListQuery);
+            employeeListResponse.TotalNumberOfEmployeesWithSpecifiedJob = _employeeRepository.GetTotalNumberWith(employeeListRequest.EmployeeListQuery.JobId);
+
             return employeeListResponse;
         }
 
         public EmployeeUpdateSalaryResponse EmployeeUpdateSalary(EmployeeUpdateSalaryRequest employeeUpdateSalaryRequest)
         {
-            throw new NotImplementedException();
+            EmployeeUpdateSalaryResponse employeeUpdateSalaryResponse = new EmployeeUpdateSalaryResponse();
+
+            Employee employee = _employeeRepository.FindBy(employeeUpdateSalaryRequest.EmployeeId);
+            employee.Salary = employeeUpdateSalaryRequest.Salary;
+            _employeeRepository.Update(employee);
+
+            return employeeUpdateSalaryResponse;
         }
     }
 }
