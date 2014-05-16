@@ -1,7 +1,37 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaffSalaries.WebUI", "StaffSalaries.WebUI\StaffSalaries.WebUI.csproj", "{65F3653F-DCB5-439B-9FBA-6F48D043A857}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaffSalaries.Presentation", "StaffSalaries.Presentation\StaffSalaries.Presentation.csproj", "{4F47F827-C50F-4534-88CD-13327729ED74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaffSalaries.Model", "StaffSalaries.Model\StaffSalaries.Model.csproj", "{91FEA08D-0DDD-461A-8133-7080D66166B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaffSalaries.Repository", "StaffSalaries.Repository\StaffSalaries.Repository.csproj", "{90675EDF-9905-4BAB-8451-24470212285F}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{65F3653F-DCB5-439B-9FBA-6F48D043A857}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65F3653F-DCB5-439B-9FBA-6F48D043A857}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65F3653F-DCB5-439B-9FBA-6F48D043A857}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65F3653F-DCB5-439B-9FBA-6F48D043A857}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F47F827-C50F-4534-88CD-13327729ED74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F47F827-C50F-4534-88CD-13327729ED74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F47F827-C50F-4534-88CD-13327729ED74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F47F827-C50F-4534-88CD-13327729ED74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91FEA08D-0DDD-461A-8133-7080D66166B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91FEA08D-0DDD-461A-8133-7080D66166B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91FEA08D-0DDD-461A-8133-7080D66166B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91FEA08D-0DDD-461A-8133-7080D66166B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90675EDF-9905-4BAB-8451-24470212285F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90675EDF-9905-4BAB-8451-24470212285F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90675EDF-9905-4BAB-8451-24470212285F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90675EDF-9905-4BAB-8451-24470212285F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
