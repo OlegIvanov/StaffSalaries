@@ -40,8 +40,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implementations\DatabaseEmployeeJobService.cs" />
+    <Compile Include="Implementations\WebserviceEmployeeJobService.cs" />
+    <Compile Include="Interfaces\IEmployeeJobService.cs" />
+    <Compile Include="Messaging\EmployeeJobService\EmployeeListRequest.cs" />
+    <Compile Include="Messaging\EmployeeJobService\EmployeeListResponse.cs" />
+    <Compile Include="Messaging\EmployeeJobService\EmployeeUpdateSalaryRequest.cs" />
+    <Compile Include="Messaging\EmployeeJobService\EmployeeUpdateSalaryResponse.cs" />
+    <Compile Include="Messaging\EmployeeJobService\JobListRequest.cs" />
+    <Compile Include="Messaging\EmployeeJobService\JobListResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
