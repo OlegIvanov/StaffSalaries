@@ -8,6 +8,11 @@ namespace StaffSalaries.Repository.Repositories
 {
     public class EmployeeRepository : IEmployeeRepository
     {
+        public IEnumerable<Employee> FindBy(EmployeeQuery employeeQuery)
+        {
+            throw new NotImplementedException();
+        }
+
         public Employee FindBy(int employeeId)
         {
             throw new NotImplementedException();

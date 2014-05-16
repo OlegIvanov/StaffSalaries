@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Employees\Employee.cs" />
+    <Compile Include="Employees\EmployeeQuery.cs" />
     <Compile Include="Employees\IEmployeeRepository.cs" />
     <Compile Include="Jobs\IJobRepository.cs" />
     <Compile Include="Jobs\Job.cs" />

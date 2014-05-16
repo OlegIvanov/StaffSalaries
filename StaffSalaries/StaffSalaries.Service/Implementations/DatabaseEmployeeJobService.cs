@@ -31,7 +31,9 @@ namespace StaffSalaries.Service.Implementations
 
         public EmployeeListResponse GetEmployeeList(EmployeeListRequest employeeListRequest)
         {
-            throw new NotImplementedException();
+            EmployeeListResponse employeeListResponse = new EmployeeListResponse();
+
+            return employeeListResponse;
         }
 
         public EmployeeUpdateSalaryResponse EmployeeUpdateSalary(EmployeeUpdateSalaryRequest employeeUpdateSalaryRequest)
