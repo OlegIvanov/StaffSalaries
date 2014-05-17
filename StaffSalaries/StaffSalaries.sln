@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaffSalaries.Facade", "Sta
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4. Facade", "4. Facade", "{B3EB6688-D80D-45B6-8E57-638C34975649}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaffSalaries.WebService", "StaffSalaries.WebService\StaffSalaries.WebService.csproj", "{400EC51A-136D-45BF-937C-9C792667F8C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{A9EBC218-4041-4ED5-861D-A18C6E3E3B12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A9EBC218-4041-4ED5-861D-A18C6E3E3B12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A9EBC218-4041-4ED5-861D-A18C6E3E3B12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{400EC51A-136D-45BF-937C-9C792667F8C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{400EC51A-136D-45BF-937C-9C792667F8C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{400EC51A-136D-45BF-937C-9C792667F8C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{400EC51A-136D-45BF-937C-9C792667F8C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
