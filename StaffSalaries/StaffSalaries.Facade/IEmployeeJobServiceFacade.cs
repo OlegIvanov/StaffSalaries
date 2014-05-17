@@ -7,6 +7,6 @@ namespace StaffSalaries.Facade
     {
         JobListPresentation GetJobList();
         EmployeeListPresentation GetEmployeeList(EmployeeListModel employeeListModel);
-        void EmployeeUpdateSalary(EmployeeUpdateSalaryModel employeeUpdateSalaryModel);
+        EmployeeUpdateSalaryPresentation EmployeeUpdateSalary(EmployeeUpdateSalaryModel employeeUpdateSalaryModel);
     }
 }

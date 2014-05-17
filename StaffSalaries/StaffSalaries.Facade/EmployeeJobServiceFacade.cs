@@ -1,6 +1,9 @@
-﻿using StaffSalaries.Facade.Models;
+﻿using StaffSalaries.Facade.Mappers;
+using StaffSalaries.Facade.Models;
 using StaffSalaries.Facade.Presentations;
+using StaffSalaries.Model.Employees;
 using StaffSalaries.Service;
+using StaffSalaries.Service.DataContracts;
 
 namespace StaffSalaries.Facade
 {
@@ -15,17 +18,55 @@ namespace StaffSalaries.Facade
 
         public JobListPresentation GetJobList()
         {
-            throw new System.NotImplementedException();
+            JobListPresentation jobListPresentation = new JobListPresentation();
+
+            JobListResponse jobListResponse = _employeeJobService.GetJobList();
+
+            jobListPresentation.Jobs = jobListResponse.Jobs.ConvertToJobListViewModel();
+
+            return jobListPresentation;
         }
 
-        public EmployeeListPresentation GetEmployeeList(EmployeeListModel employeeListRequestModel)
+        public EmployeeListPresentation GetEmployeeList(EmployeeListModel employeeListModel)
         {
-            throw new System.NotImplementedException();
+            EmployeeListPresentation employeeListPresentation = new EmployeeListPresentation();
+
+            EmployeeListRequest employeeListRequest = new EmployeeListRequest();
+
+            EmployeeQuery employeeQuery = new EmployeeQuery
+                {
+                    JobId = employeeListModel.JobId,
+                    SortBy = employeeListModel.SortBy,
+                    OrderBy = employeeListModel.OrderBy,
+                    PageSize = employeeListModel.PageSize,
+                    PageIndex = employeeListModel.PageIndex
+                };
+
+            employeeListRequest.EmployeeListQuery = employeeQuery;
+
+            EmployeeListResponse employeeListResponse = _employeeJobService.GetEmployeeList(employeeListRequest);
+
+            employeeListPresentation.Employees = employeeListResponse.Employees.ConvertToEmployeeListViewModel();
+            employeeListPresentation.TotalNumberOfEmployeesWithSpecifiedJob =
+                employeeListResponse.TotalNumberOfEmployeesWithSpecifiedJob;
+
+            return employeeListPresentation;
         }
 
-        public void EmployeeUpdateSalary(EmployeeUpdateSalaryModel employeeUpdateSalaryModel)
+        public EmployeeUpdateSalaryPresentation EmployeeUpdateSalary(EmployeeUpdateSalaryModel employeeUpdateSalaryModel)
         {
-            throw new System.NotImplementedException();
+            EmployeeUpdateSalaryPresentation employeeUpdateSalaryPresentation = new EmployeeUpdateSalaryPresentation();
+
+            EmployeeUpdateSalaryRequest employeeUpdateSalaryRequest = new EmployeeUpdateSalaryRequest
+                {
+                    EmployeeId = employeeUpdateSalaryModel.EmployeeId,
+                    Salary = employeeUpdateSalaryModel.Salary
+                };
+
+            EmployeeUpdateSalaryResponse employeeUpdateSalaryResponse =
+                _employeeJobService.EmployeeUpdateSalary(employeeUpdateSalaryRequest);
+
+            return employeeUpdateSalaryPresentation;
         }
     }
 }
