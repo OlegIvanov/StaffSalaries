@@ -222,5 +222,12 @@ namespace StaffSalaries.WebUI
                 ddlJobList.DataBind();
             }
         }
+
+        public void DisplayEmployeeList(IEnumerable<EmployeeViewModel> employeeList,
+                                        int totalNumberOfEmployeesWithSpecifiedJob)
+        {
+            gvEmployeeList.DataSource = employeeList;
+            gvEmployeeList.DataBind();
+        }
     }
 }

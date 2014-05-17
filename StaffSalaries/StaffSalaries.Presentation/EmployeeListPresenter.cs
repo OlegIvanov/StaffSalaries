@@ -9,8 +9,7 @@ namespace StaffSalaries.Presentation
         private IEmployeeListView _employeeListView;
         private IEmployeeJobServiceFacade _employeeJobServiceFacade;
 
-        public EmployeeListPresenter(IEmployeeListView employeeListView,
-                                     IEmployeeJobServiceFacade employeeJobServiceFacade)
+        public EmployeeListPresenter(IEmployeeListView employeeListView, IEmployeeJobServiceFacade employeeJobServiceFacade)
         {
             _employeeListView = employeeListView;
             _employeeJobServiceFacade = employeeJobServiceFacade;
@@ -19,30 +18,33 @@ namespace StaffSalaries.Presentation
         public void DisplayJobList()
         {
             JobListPresentation jobListPresentation = _employeeJobServiceFacade.GetJobList();
+
+            _employeeListView.JobList = jobListPresentation.Jobs;
         }
 
         public void DisplayEmployeeList()
         {
             EmployeeListModel employeeListModel = new EmployeeListModel
-                {
-                    JobId = _employeeListView.JobId,
-                    SortBy = _employeeListView.SortBy,
-                    OrderBy = _employeeListView.OrderBy,
-                    PageSize = _employeeListView.PageSize,
-                    PageIndex = _employeeListView.PageIndex
-                };
+            {
+                JobId = _employeeListView.JobId,
+                SortBy = _employeeListView.SortBy,
+                OrderBy = _employeeListView.OrderBy,
+                PageSize = _employeeListView.PageSize,
+                PageIndex = _employeeListView.PageIndex
+            };
 
-            EmployeeListPresentation employeeListPresentation =
-                _employeeJobServiceFacade.GetEmployeeList(employeeListModel);
+            EmployeeListPresentation employeeListPresentation = _employeeJobServiceFacade.GetEmployeeList(employeeListModel);
+
+            _employeeListView.DisplayEmployeeList(employeeListPresentation.Employees, employeeListPresentation.TotalNumberOfEmployeesWithSpecifiedJob);
         }
 
         public void UpdateEmployeeSalary()
         {
             EmployeeUpdateSalaryModel employeeUpdateSalaryModel = new EmployeeUpdateSalaryModel
-                {
-                    EmployeeId = _employeeListView.EmployeeId,
-                    Salary = _employeeListView.Salary
-                };
+            {
+                EmployeeId = _employeeListView.EmployeeId,
+                Salary = _employeeListView.Salary
+            };
 
             _employeeJobServiceFacade.EmployeeUpdateSalary(employeeUpdateSalaryModel);
         }

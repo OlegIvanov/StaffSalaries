@@ -21,11 +21,11 @@ namespace StaffSalaries.Facade.Mappers
         public static EmployeeViewModel ConvertToEmployeeViewModel(this Employee employee)
         {
             return new EmployeeViewModel
-                {
-                    Id = employee.Id.ToString(),
-                    FullName = string.Format("{0} {1}", employee.LastName, employee.FirstName),
-                    Salary = string.Format("{0:0.00}", employee.Salary)
-                };
+            {
+                Id = employee.Id.ToString(),
+                FullName = string.Format("{0} {1}", employee.LastName, employee.FirstName),
+                Salary = string.Format("{0:0.00}", employee.Salary)
+            };
         }
     }
 }

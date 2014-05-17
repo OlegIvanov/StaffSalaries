@@ -14,5 +14,6 @@ namespace StaffSalaries.Presentation
         int EmployeeId { get; }
         decimal Salary { get; }
         IEnumerable<JobViewModel> JobList { set; }
+        void DisplayEmployeeList(IEnumerable<EmployeeViewModel> employeeList, int totalNumberOfEmployeesWithSpecifiedJob);
     }
 }

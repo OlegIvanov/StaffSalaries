@@ -34,13 +34,13 @@ namespace StaffSalaries.Facade
             EmployeeListRequest employeeListRequest = new EmployeeListRequest();
 
             EmployeeQuery employeeQuery = new EmployeeQuery
-                {
-                    JobId = employeeListModel.JobId,
-                    SortBy = employeeListModel.SortBy,
-                    OrderBy = employeeListModel.OrderBy,
-                    PageSize = employeeListModel.PageSize,
-                    PageIndex = employeeListModel.PageIndex
-                };
+            {
+                JobId = employeeListModel.JobId,
+                SortBy = employeeListModel.SortBy,
+                OrderBy = employeeListModel.OrderBy,
+                PageSize = employeeListModel.PageSize,
+                PageIndex = employeeListModel.PageIndex
+            };
 
             employeeListRequest.EmployeeListQuery = employeeQuery;
 
@@ -58,10 +58,10 @@ namespace StaffSalaries.Facade
             EmployeeUpdateSalaryPresentation employeeUpdateSalaryPresentation = new EmployeeUpdateSalaryPresentation();
 
             EmployeeUpdateSalaryRequest employeeUpdateSalaryRequest = new EmployeeUpdateSalaryRequest
-                {
-                    EmployeeId = employeeUpdateSalaryModel.EmployeeId,
-                    Salary = employeeUpdateSalaryModel.Salary
-                };
+            {
+                EmployeeId = employeeUpdateSalaryModel.EmployeeId,
+                Salary = employeeUpdateSalaryModel.Salary
+            };
 
             EmployeeUpdateSalaryResponse employeeUpdateSalaryResponse =
                 _employeeJobService.EmployeeUpdateSalary(employeeUpdateSalaryRequest);

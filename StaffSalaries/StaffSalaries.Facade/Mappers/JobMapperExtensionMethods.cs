@@ -21,10 +21,10 @@ namespace StaffSalaries.Facade.Mappers
         public static JobViewModel ConvertToJobViewModel(this Job job)
         {
             return new JobViewModel
-                {
-                    Id = job.Id.ToString(),
-                    Name = job.Name
-                };
+            {
+                Id = job.Id.ToString(),
+                Name = job.Name
+            };
         }
     }
 }
