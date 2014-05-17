@@ -1,7 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Linq;
 using StaffSalaries.Model.Employees;
 
 namespace StaffSalaries.Repository.Repositories
@@ -38,12 +38,38 @@ namespace StaffSalaries.Repository.Repositories
 
         public Employee FindBy(int employeeId)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = new SqlCommand("GetEmployeeByEmployeeId", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add("EmployeeId", SqlDbType.Int).Value = employeeId;
+
+                connection.Open();
+
+                using (IDataReader reader = command.ExecuteReader())
+                {
+                    return GetEmployeesFromReader(reader).FirstOrDefault();
+                }
+            }
         }
 
         public int Update(Employee employee)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                SqlCommand command = new SqlCommand("UpdateEmployee", connection);
+                command.CommandType = CommandType.StoredProcedure;
+
+                command.Parameters.Add("@EmployeeId", SqlDbType.Int).Value = employee.Id;
+                command.Parameters.Add("@FirstName", SqlDbType.NVarChar, 100).Value = employee.FirstName;
+                command.Parameters.Add("@LastName", SqlDbType.NVarChar, 100).Value = employee.LastName;
+                command.Parameters.Add("@Salary", SqlDbType.Money).Value = employee.Salary;
+
+                connection.Open();
+
+                return command.ExecuteNonQuery();
+            }
         }
 
         public int GetTotalNumberWith(int jobId)
