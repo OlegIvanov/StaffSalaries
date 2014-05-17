@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using StaffSalaries.Model.Jobs;
@@ -39,8 +38,8 @@ namespace StaffSalaries.Repository.Repositories
             {
                 jobs.Add(new Job
                 {
-                    Id = (int)dataReader["JobId"],
-                    Name = (string)dataReader["JobName"]
+                    Id = (int) dataReader["JobId"],
+                    Name = (string) dataReader["JobName"]
                 });
             }
 

@@ -57,7 +57,7 @@ namespace StaffSalaries.Repository.Repositories
 
                 connection.Open();
 
-                return (int)command.ExecuteScalar();
+                return (int) command.ExecuteScalar();
             }
         }
 
@@ -69,10 +69,10 @@ namespace StaffSalaries.Repository.Repositories
             {
                 employees.Add(new Employee
                 {
-                    Id = (int)dataReader["EmployeeId"],
-                    FirstName = (string)dataReader["FirstName"],
-                    LastName = (string)dataReader["LastName"],
-                    Salary = (decimal)dataReader["Salary"]
+                    Id = (int) dataReader["EmployeeId"],
+                    FirstName = (string) dataReader["FirstName"],
+                    LastName = (string) dataReader["LastName"],
+                    Salary = (decimal) dataReader["Salary"]
                 });
             }
 
