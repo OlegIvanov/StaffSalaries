@@ -51,6 +51,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Default.aspx" />
+    <Content Include="EmployeeList.ascx" />
+    <Content Include="EmployeeListControlConfig.xml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -60,7 +63,35 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeList.ascx.cs">
+      <DependentUpon>EmployeeList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EmployeeList.ascx.designer.cs">
+      <DependentUpon>EmployeeList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeListControl\Configuration.cs" />
+    <Compile Include="EmployeeListControl\ConfigurationDataSource.cs" />
+    <Compile Include="EmployeeListControl\ConfigurationDataSourceType.cs" />
+    <Compile Include="EmployeeListControl\ConfigurationFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StaffSalaries.Model\StaffSalaries.Model.csproj">
+      <Project>{91FEA08D-0DDD-461A-8133-7080D66166B0}</Project>
+      <Name>StaffSalaries.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StaffSalaries.Presentation\StaffSalaries.Presentation.csproj">
+      <Project>{4F47F827-C50F-4534-88CD-13327729ED74}</Project>
+      <Name>StaffSalaries.Presentation</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
