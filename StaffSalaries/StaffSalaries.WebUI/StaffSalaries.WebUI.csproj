@@ -54,6 +54,11 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Employees.mdf" />
+    <Content Include="App_Data\Employees_log.ldf">
+      <DependentUpon>Employees.mdf</DependentUpon>
+    </Content>
+    <Content Include="DatabaseObjectsGenerationScript.sql" />
     <Content Include="Default.aspx" />
     <Content Include="EmployeeList.ascx" />
     <Content Include="EmployeeListControlConfig.xml" />
@@ -109,6 +114,7 @@
       <Name>StaffSalaries.Service</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>
