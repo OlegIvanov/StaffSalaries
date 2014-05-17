@@ -6,6 +6,13 @@ namespace StaffSalaries.Repository.Repositories
 {
     public class EmployeeRepository : IEmployeeRepository
     {
+        private string _connectionString;
+
+        public EmployeeRepository(string connectionString)
+        {
+            _connectionString = connectionString;
+        }
+
         public IEnumerable<Employee> FindBy(EmployeeQuery employeeQuery)
         {
             throw new NotImplementedException();

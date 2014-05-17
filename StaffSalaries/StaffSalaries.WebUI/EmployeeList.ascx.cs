@@ -7,8 +7,6 @@ using StaffSalaries.Facade;
 using StaffSalaries.Facade.ViewModels;
 using StaffSalaries.Model.Employees;
 using StaffSalaries.Presentation;
-using StaffSalaries.Repository.Repositories;
-using StaffSalaries.Service;
 using StaffSalaries.WebUI.EmployeeListControl;
 
 namespace StaffSalaries.WebUI
@@ -28,17 +26,14 @@ namespace StaffSalaries.WebUI
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            _presenter = new EmployeeListPresenter(this,
-                                                   new EmployeeJobServiceFacade(
-                                                       new DatabaseEmployeeJobService(new JobRepository(),
-                                                                                      new EmployeeRepository())));
-
             Configuration config = (Configuration) ViewState[_employeeListControlConfigurationKey];
             if (config == null)
             {
                 config = ConfigurationFactory.GetConfiguration(XmlConfigFile);
                 ViewState[_employeeListControlConfigurationKey] = config;
             }
+
+            _presenter = new EmployeeListPresenter(this, EmployeeListControlDataSourceResolverFactory.GetConfiguredIoCContainer(config).GetInstance<IEmployeeJobServiceFacade>());
 
             ddlJobList.DataBound += ddlJobList_DataBound;
             ddlJobList.SelectedIndexChanged += ddlJobList_SelectedIndexChanged;
@@ -199,8 +194,7 @@ namespace StaffSalaries.WebUI
         {
             get
             {
-                HiddenField hfEmployeeId =
-                    (HiddenField) gvEmployeeList.Rows[gvEmployeeList.EditIndex].FindControl("hfEmployeeId");
+                HiddenField hfEmployeeId = (HiddenField) gvEmployeeList.Rows[gvEmployeeList.EditIndex].FindControl("hfEmployeeId");
                 return int.Parse(hfEmployeeId.Value);
             }
         }
@@ -223,8 +217,7 @@ namespace StaffSalaries.WebUI
             }
         }
 
-        public void DisplayEmployeeList(IEnumerable<EmployeeViewModel> employeeList,
-                                        int totalNumberOfEmployeesWithSpecifiedJob)
+        public void DisplayEmployeeList(IEnumerable<EmployeeViewModel> employeeList, int totalNumberOfEmployeesWithSpecifiedJob)
         {
             gvEmployeeList.DataSource = employeeList;
             gvEmployeeList.DataBind();
