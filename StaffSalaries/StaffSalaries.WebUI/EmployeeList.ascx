@@ -3,11 +3,11 @@
 <span>Job Title:</span>
 <asp:DropDownList ID="ddlJobList" runat="server" AutoPostBack="true" DataValueField="Id" DataTextField="Name"></asp:DropDownList>
 <p>Employees/Salary:</p>
-<asp:GridView ID="gwEmployeeList" runat="server" AutoGenerateColumns="false" AllowPaging="true">
+<asp:GridView ID="gvEmployeeList" runat="server" AutoGenerateColumns="false" AllowPaging="true">
     <Columns>
         <asp:TemplateField>
             <HeaderTemplate>
-                <asp:LinkButton CommandName="SortByFullName" runat="server" Text="FullName"></asp:LinkButton>
+                <asp:LinkButton CommandName="SortAndOrderByFullName" runat="server" Text="FullName"></asp:LinkButton>
             </HeaderTemplate>
             <ItemTemplate>
                 <%# Eval("FullName") %>
@@ -19,7 +19,7 @@
         </asp:TemplateField>
         <asp:TemplateField>
             <HeaderTemplate>
-                <asp:LinkButton CommandName="SortBySalary" runat="server" Text="Salary"></asp:LinkButton>
+                <asp:LinkButton CommandName="SortAndOrderBySalary" runat="server" Text="Salary"></asp:LinkButton>
             </HeaderTemplate>
             <ItemTemplate>
                 <%# Eval("Salary") %>

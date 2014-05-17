@@ -45,6 +45,12 @@
     <Compile Include="IEmployeeListView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StaffSalaries.Model\StaffSalaries.Model.csproj">
+      <Project>{91FEA08D-0DDD-461A-8133-7080D66166B0}</Project>
+      <Name>StaffSalaries.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
