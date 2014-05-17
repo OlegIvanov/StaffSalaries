@@ -1,26 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.ComponentModel;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.ComponentModel;
-using StaffSalaries.WebUI.EmployeeListControl;
-using StaffSalaries.Presentation;
 using StaffSalaries.Model.Employees;
+using StaffSalaries.Presentation;
+using StaffSalaries.WebUI.EmployeeListControl;
 
 namespace StaffSalaries.WebUI
 {
-    public partial class EmployeeList : System.Web.UI.UserControl, IEmployeeListView
+    public partial class EmployeeList : UserControl, IEmployeeListView
     {
         [Category("Config")]
         [Browsable(true)]
         [UrlProperty("*.xml")]
         public string XmlConfigFile { get; set; }
 
-        private string _employeeListControlConfigurationKey = "Config";
-        private string _sortByKey = "SortBy";
-        private string _orderByKey = "OrderBy";
+        private readonly string _employeeListControlConfigurationKey = "Config";
+        private readonly string _sortByKey = "SortBy";
+        private readonly string _orderByKey = "OrderBy";
 
         private IEmployeeListPresenter _presenter;
 
@@ -35,14 +32,14 @@ namespace StaffSalaries.WebUI
                 ViewState[_employeeListControlConfigurationKey] = config;
             }
 
-            ddlJobList.DataBound += new EventHandler(ddlJobList_DataBound);
-            ddlJobList.SelectedIndexChanged += new EventHandler(ddlJobList_SelectedIndexChanged);
+            ddlJobList.DataBound += ddlJobList_DataBound;
+            ddlJobList.SelectedIndexChanged += ddlJobList_SelectedIndexChanged;
 
-            gvEmployeeList.RowCommand += new GridViewCommandEventHandler(gvEmployeeList_RowCommand);
-            gvEmployeeList.PageIndexChanging += new GridViewPageEventHandler(gvEmployeeList_PageIndexChanging);
-            gvEmployeeList.RowEditing += new GridViewEditEventHandler(gvEmployeeList_RowEditing);
-            gvEmployeeList.RowCancelingEdit += new GridViewCancelEditEventHandler(gvEmployeeList_RowCancelingEdit);
-            gvEmployeeList.RowUpdating += new GridViewUpdateEventHandler(gvEmployeeList_RowUpdating);
+            gvEmployeeList.RowCommand += gvEmployeeList_RowCommand;
+            gvEmployeeList.PageIndexChanging += gvEmployeeList_PageIndexChanging;
+            gvEmployeeList.RowEditing += gvEmployeeList_RowEditing;
+            gvEmployeeList.RowCancelingEdit += gvEmployeeList_RowCancelingEdit;
+            gvEmployeeList.RowUpdating += gvEmployeeList_RowUpdating;
         }
 
         protected void Page_Load(object sender, EventArgs e)
