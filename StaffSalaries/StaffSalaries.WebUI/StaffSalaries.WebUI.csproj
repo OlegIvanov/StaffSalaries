@@ -84,6 +84,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\StaffSalaries.Facade\StaffSalaries.Facade.csproj">
+      <Project>{A9EBC218-4041-4ED5-861D-A18C6E3E3B12}</Project>
+      <Name>StaffSalaries.Facade</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StaffSalaries.Model\StaffSalaries.Model.csproj">
       <Project>{91FEA08D-0DDD-461A-8133-7080D66166B0}</Project>
       <Name>StaffSalaries.Model</Name>
@@ -91,6 +95,14 @@
     <ProjectReference Include="..\StaffSalaries.Presentation\StaffSalaries.Presentation.csproj">
       <Project>{4F47F827-C50F-4534-88CD-13327729ED74}</Project>
       <Name>StaffSalaries.Presentation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StaffSalaries.Repository\StaffSalaries.Repository.csproj">
+      <Project>{90675EDF-9905-4BAB-8451-24470212285F}</Project>
+      <Name>StaffSalaries.Repository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StaffSalaries.Service\StaffSalaries.Service.csproj">
+      <Project>{AA93F579-0AE9-4434-B718-BFB4CE376023}</Project>
+      <Name>StaffSalaries.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

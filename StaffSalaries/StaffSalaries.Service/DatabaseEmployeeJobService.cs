@@ -1,9 +1,8 @@
 ﻿using StaffSalaries.Model.Employees;
 using StaffSalaries.Model.Jobs;
-using StaffSalaries.Service.Interfaces;
-using StaffSalaries.Service.Messaging;
+using StaffSalaries.Service.DataContracts;
 
-namespace StaffSalaries.Service.Implementations
+namespace StaffSalaries.Service
 {
     public class DatabaseEmployeeJobService : IEmployeeJobService
     {

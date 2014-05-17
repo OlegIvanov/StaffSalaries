@@ -1,8 +1,7 @@
 ﻿using System;
-using StaffSalaries.Service.Interfaces;
-using StaffSalaries.Service.Messaging;
+using StaffSalaries.Service.DataContracts;
 
-namespace StaffSalaries.Service.Implementations
+namespace StaffSalaries.Service
 {
     public class WebserviceEmployeeJobService : IEmployeeJobService
     {

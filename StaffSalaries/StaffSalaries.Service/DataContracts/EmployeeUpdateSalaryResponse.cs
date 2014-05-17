@@ -1,4 +1,4 @@
-﻿namespace StaffSalaries.Service.Messaging
+﻿namespace StaffSalaries.Service.DataContracts
 {
     public class EmployeeUpdateSalaryResponse
     {

@@ -40,14 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Implementations\DatabaseEmployeeJobService.cs" />
-    <Compile Include="Implementations\WebserviceEmployeeJobService.cs" />
-    <Compile Include="Interfaces\IEmployeeJobService.cs" />
-    <Compile Include="Messaging\EmployeeListRequest.cs" />
-    <Compile Include="Messaging\EmployeeListResponse.cs" />
-    <Compile Include="Messaging\EmployeeUpdateSalaryRequest.cs" />
-    <Compile Include="Messaging\EmployeeUpdateSalaryResponse.cs" />
-    <Compile Include="Messaging\JobListResponse.cs" />
+    <Compile Include="DatabaseEmployeeJobService.cs" />
+    <Compile Include="WebserviceEmployeeJobService.cs" />
+    <Compile Include="IEmployeeJobService.cs" />
+    <Compile Include="DataContracts\EmployeeListRequest.cs" />
+    <Compile Include="DataContracts\EmployeeListResponse.cs" />
+    <Compile Include="DataContracts\EmployeeUpdateSalaryRequest.cs" />
+    <Compile Include="DataContracts\EmployeeUpdateSalaryResponse.cs" />
+    <Compile Include="DataContracts\JobListResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

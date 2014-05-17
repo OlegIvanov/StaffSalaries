@@ -1,6 +1,6 @@
-﻿namespace StaffSalaries.Service.Messaging
+﻿namespace StaffSalaries.Facade.Models
 {
-    public class EmployeeUpdateSalaryRequest
+    public class EmployeeUpdateSalaryModel
     {
         public int EmployeeId { get; set; }
         public decimal Salary { get; set; }

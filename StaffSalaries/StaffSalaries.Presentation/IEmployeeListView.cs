@@ -1,4 +1,6 @@
-﻿using StaffSalaries.Model.Employees;
+﻿using System.Collections.Generic;
+using StaffSalaries.Facade.ViewModels;
+using StaffSalaries.Model.Employees;
 
 namespace StaffSalaries.Presentation
 {
@@ -11,5 +13,6 @@ namespace StaffSalaries.Presentation
         int PageIndex { get; }
         int EmployeeId { get; }
         decimal Salary { get; }
+        IEnumerable<JobViewModel> JobList { set; }
     }
 }

@@ -42,14 +42,25 @@
   <ItemGroup>
     <Compile Include="EmployeeJobServiceFacade.cs" />
     <Compile Include="IEmployeeJobServiceFacade.cs" />
+    <Compile Include="Models\EmployeeListModel.cs" />
+    <Compile Include="Models\EmployeeUpdateSalaryModel.cs" />
+    <Compile Include="Presentations\EmployeeListPresentation.cs" />
+    <Compile Include="Presentations\JobListPresentation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\EmployeeViewModel.cs" />
+    <Compile Include="ViewModels\JobViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\StaffSalaries.Model\StaffSalaries.Model.csproj">
+      <Project>{91FEA08D-0DDD-461A-8133-7080D66166B0}</Project>
+      <Name>StaffSalaries.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StaffSalaries.Service\StaffSalaries.Service.csproj">
       <Project>{AA93F579-0AE9-4434-B718-BFB4CE376023}</Project>
       <Name>StaffSalaries.Service</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

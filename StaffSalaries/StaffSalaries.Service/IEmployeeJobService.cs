@@ -1,6 +1,6 @@
-﻿using StaffSalaries.Service.Messaging;
+﻿using StaffSalaries.Service.DataContracts;
 
-namespace StaffSalaries.Service.Interfaces
+namespace StaffSalaries.Service
 {
     public interface IEmployeeJobService
     {

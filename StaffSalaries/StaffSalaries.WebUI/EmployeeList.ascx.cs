@@ -1,9 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using StaffSalaries.Facade;
+using StaffSalaries.Facade.ViewModels;
 using StaffSalaries.Model.Employees;
 using StaffSalaries.Presentation;
+using StaffSalaries.Repository.Repositories;
+using StaffSalaries.Service;
 using StaffSalaries.WebUI.EmployeeListControl;
 
 namespace StaffSalaries.WebUI
@@ -23,7 +28,10 @@ namespace StaffSalaries.WebUI
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            _presenter = new EmployeeListPresenter();
+            _presenter = new EmployeeListPresenter(this,
+                                                   new EmployeeJobServiceFacade(
+                                                       new DatabaseEmployeeJobService(new JobRepository(),
+                                                                                      new EmployeeRepository())));
 
             Configuration config = (Configuration) ViewState[_employeeListControlConfigurationKey];
             if (config == null)
@@ -203,6 +211,15 @@ namespace StaffSalaries.WebUI
             {
                 TextBox tbSalary = (TextBox) gvEmployeeList.Rows[gvEmployeeList.EditIndex].FindControl("tbSalary");
                 return decimal.Parse(tbSalary.Text);
+            }
+        }
+
+        public IEnumerable<JobViewModel> JobList
+        {
+            set
+            {
+                ddlJobList.DataSource = value;
+                ddlJobList.DataBind();
             }
         }
     }

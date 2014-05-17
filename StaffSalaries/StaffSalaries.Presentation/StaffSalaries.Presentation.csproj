@@ -46,6 +46,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\StaffSalaries.Facade\StaffSalaries.Facade.csproj">
+      <Project>{A9EBC218-4041-4ED5-861D-A18C6E3E3B12}</Project>
+      <Name>StaffSalaries.Facade</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StaffSalaries.Model\StaffSalaries.Model.csproj">
       <Project>{91FEA08D-0DDD-461A-8133-7080D66166B0}</Project>
       <Name>StaffSalaries.Model</Name>
