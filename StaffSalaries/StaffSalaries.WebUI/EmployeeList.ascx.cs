@@ -28,7 +28,7 @@ namespace StaffSalaries.WebUI
         {
             _presenter = new EmployeeListPresenter();
 
-            Configuration config = (Configuration)ViewState[_employeeListControlConfigurationKey];
+            Configuration config = (Configuration) ViewState[_employeeListControlConfigurationKey];
             if (config == null)
             {
                 config = ConfigurationFactory.GetConfiguration(XmlConfigFile);
@@ -48,8 +48,8 @@ namespace StaffSalaries.WebUI
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-            { 
-                Configuration config = (Configuration)ViewState[_employeeListControlConfigurationKey];
+            {
+                Configuration config = (Configuration) ViewState[_employeeListControlConfigurationKey];
 
                 gvEmployeeList.PageSize = config.PageSize;
                 gvEmployeeList.Columns[2].Visible = config.IsEditable;
@@ -130,7 +130,7 @@ namespace StaffSalaries.WebUI
 
         private void SortAndOrderBy(EmployeesSortBy newSortBy)
         {
-            EmployeesSortBy sortBy = (EmployeesSortBy)ViewState[_sortByKey];
+            EmployeesSortBy sortBy = (EmployeesSortBy) ViewState[_sortByKey];
 
             ViewState[_sortByKey] = newSortBy;
 
@@ -139,7 +139,7 @@ namespace StaffSalaries.WebUI
 
         private void ChangeColumnOrdering(bool hasChangedColumn)
         {
-            EmployeesOrderBy orderBy = (EmployeesOrderBy)ViewState[_orderByKey];
+            EmployeesOrderBy orderBy = (EmployeesOrderBy) ViewState[_orderByKey];
 
             if (hasChangedColumn)
             {
@@ -148,7 +148,7 @@ namespace StaffSalaries.WebUI
             }
 
             switch (orderBy)
-            { 
+            {
                 case EmployeesOrderBy.None:
                     ViewState[_orderByKey] = EmployeesOrderBy.Ascending;
                     break;
@@ -168,20 +168,20 @@ namespace StaffSalaries.WebUI
 
         public EmployeesSortBy SortBy
         {
-            get { return (EmployeesSortBy)ViewState[_sortByKey]; }
+            get { return (EmployeesSortBy) ViewState[_sortByKey]; }
         }
 
         public EmployeesOrderBy OrderBy
         {
-            get { return (EmployeesOrderBy)ViewState[_orderByKey]; }
+            get { return (EmployeesOrderBy) ViewState[_orderByKey]; }
         }
 
         public int PageSize
         {
-            get 
+            get
             {
-                Configuration config = (Configuration)ViewState[_employeeListControlConfigurationKey];
-                return config.PageSize; 
+                Configuration config = (Configuration) ViewState[_employeeListControlConfigurationKey];
+                return config.PageSize;
             }
         }
 
@@ -192,18 +192,19 @@ namespace StaffSalaries.WebUI
 
         public int EmployeeId
         {
-            get 
+            get
             {
-                HiddenField hfEmployeeId = (HiddenField)gvEmployeeList.Rows[gvEmployeeList.EditIndex].FindControl("hfEmployeeId");
+                HiddenField hfEmployeeId =
+                    (HiddenField) gvEmployeeList.Rows[gvEmployeeList.EditIndex].FindControl("hfEmployeeId");
                 return int.Parse(hfEmployeeId.Value);
             }
         }
 
         public decimal Salary
         {
-            get 
+            get
             {
-                TextBox tbSalary = (TextBox)gvEmployeeList.Rows[gvEmployeeList.EditIndex].FindControl("tbSalary");
+                TextBox tbSalary = (TextBox) gvEmployeeList.Rows[gvEmployeeList.EditIndex].FindControl("tbSalary");
                 return decimal.Parse(tbSalary.Text);
             }
         }

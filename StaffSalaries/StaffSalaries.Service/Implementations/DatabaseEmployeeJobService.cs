@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using StaffSalaries.Model.Employees;
+using StaffSalaries.Model.Jobs;
 using StaffSalaries.Service.Interfaces;
 using StaffSalaries.Service.Messaging.EmployeeJobService;
-using StaffSalaries.Model.Jobs;
-using StaffSalaries.Model.Employees;
 
 namespace StaffSalaries.Service.Implementations
 {
@@ -34,7 +30,8 @@ namespace StaffSalaries.Service.Implementations
             EmployeeListResponse employeeListResponse = new EmployeeListResponse();
 
             employeeListResponse.Employees = _employeeRepository.FindBy(employeeListRequest.EmployeeListQuery);
-            employeeListResponse.TotalNumberOfEmployeesWithSpecifiedJob = _employeeRepository.GetTotalNumberWith(employeeListRequest.EmployeeListQuery.JobId);
+            employeeListResponse.TotalNumberOfEmployeesWithSpecifiedJob =
+                _employeeRepository.GetTotalNumberWith(employeeListRequest.EmployeeListQuery.JobId);
 
             return employeeListResponse;
         }
