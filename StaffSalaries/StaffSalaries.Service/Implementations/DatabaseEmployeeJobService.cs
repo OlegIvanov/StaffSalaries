@@ -1,7 +1,7 @@
 ﻿using StaffSalaries.Model.Employees;
 using StaffSalaries.Model.Jobs;
 using StaffSalaries.Service.Interfaces;
-using StaffSalaries.Service.Messaging.EmployeeJobService;
+using StaffSalaries.Service.Messaging;
 
 namespace StaffSalaries.Service.Implementations
 {

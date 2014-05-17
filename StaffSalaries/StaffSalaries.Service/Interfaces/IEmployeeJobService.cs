@@ -1,4 +1,4 @@
-﻿using StaffSalaries.Service.Messaging.EmployeeJobService;
+﻿using StaffSalaries.Service.Messaging;
 
 namespace StaffSalaries.Service.Interfaces
 {

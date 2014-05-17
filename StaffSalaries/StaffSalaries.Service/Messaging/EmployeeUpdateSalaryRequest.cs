@@ -1,5 +1,4 @@
-﻿
-namespace StaffSalaries.Service.Messaging.EmployeeJobService
+﻿namespace StaffSalaries.Service.Messaging
 {
     public class EmployeeUpdateSalaryRequest
     {

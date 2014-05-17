@@ -1,6 +1,6 @@
 ﻿using System;
 using StaffSalaries.Service.Interfaces;
-using StaffSalaries.Service.Messaging.EmployeeJobService;
+using StaffSalaries.Service.Messaging;
 
 namespace StaffSalaries.Service.Implementations
 {

@@ -1,6 +1,6 @@
 ﻿using StaffSalaries.Model.Employees;
 
-namespace StaffSalaries.Service.Messaging.EmployeeJobService
+namespace StaffSalaries.Service.Messaging
 {
     public class EmployeeListRequest
     {

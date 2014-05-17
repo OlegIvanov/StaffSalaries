@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using StaffSalaries.Model.Jobs;
 
-namespace StaffSalaries.Service.Messaging.EmployeeJobService
+namespace StaffSalaries.Service.Messaging
 {
     public class JobListResponse
     {
