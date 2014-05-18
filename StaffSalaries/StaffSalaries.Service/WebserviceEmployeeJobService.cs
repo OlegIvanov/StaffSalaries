@@ -1,9 +1,5 @@
-﻿using EJ = EmployeeJobWebServiceProxyTypesNamespace;
-using EmployeeListRequest = StaffSalaries.Service.DataContracts.EmployeeListRequest;
-using EmployeeListResponse = StaffSalaries.Service.DataContracts.EmployeeListResponse;
-using EmployeeUpdateSalaryRequest = StaffSalaries.Service.DataContracts.EmployeeUpdateSalaryRequest;
-using EmployeeUpdateSalaryResponse = StaffSalaries.Service.DataContracts.EmployeeUpdateSalaryResponse;
-using JobListResponse = StaffSalaries.Service.DataContracts.JobListResponse;
+﻿using StaffSalaries.Service.DataContracts;
+using EJ = EmployeeJobWebServiceProxyTypesNamespace;
 
 namespace StaffSalaries.Service
 {
