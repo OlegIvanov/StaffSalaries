@@ -248,14 +248,13 @@ namespace StaffSalaries.WebUI
         private void CreatePagingControl()
         {
             int totalNumberOfRows = (int) ViewState[_totalNumberOfRowsKey];
+            int pageIndex = (int)ViewState[_pageIndexKey];
 
             if (totalNumberOfRows > 0 && PageSize > 0)
             {
                 int numberOfPages = totalNumberOfRows / PageSize;
                 if (totalNumberOfRows % PageSize > 0)
                     numberOfPages++;
-
-                int pageIndex = (int) ViewState[_pageIndexKey];
 
                 pPagination.Controls.Clear();
 
