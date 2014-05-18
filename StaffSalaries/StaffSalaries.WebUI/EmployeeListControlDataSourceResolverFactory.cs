@@ -40,7 +40,7 @@ namespace StaffSalaries.WebUI
                     {
                         x.For<IEmployeeJobServiceFacade>().Use<EmployeeJobServiceFacade>();
 
-                        x.For<IEmployeeJobService>().Use<WebserviceEmployeeJobService>().Ctor<string>(configuration.DataSource.Url);
+                        x.For<IEmployeeJobService>().Use<WebserviceEmployeeJobService>().Ctor<string>().Is(configuration.DataSource.Url);
                     });
 
                     break;
