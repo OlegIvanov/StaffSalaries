@@ -21,16 +21,19 @@ namespace StaffSalaries.WebService
             _employeeJobService = employeeJobService;
         }
 
+        [WebMethod]
         public JobListResponse GetJobList()
         {
             return _employeeJobService.GetJobList();
         }
 
+        [WebMethod]
         public EmployeeListResponse GetEmployeeList(EmployeeListRequest employeeListRequest)
         {
             return _employeeJobService.GetEmployeeList(employeeListRequest);
         }
 
+        [WebMethod]
         public EmployeeUpdateSalaryResponse EmployeeUpdateSalary(EmployeeUpdateSalaryRequest employeeUpdateSalaryRequest)
         {
             return _employeeJobService.EmployeeUpdateSalary(employeeUpdateSalaryRequest);
