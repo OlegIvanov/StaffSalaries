@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="StructureMap">
+      <HintPath>..\Lib\StructureMap.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -50,6 +53,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Employees.mdf" />
     <Content Include="EmployeeJobWebService.asmx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -60,16 +64,23 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BootStrapper.cs" />
     <Compile Include="EmployeeJobWebService.asmx.cs">
       <DependentUpon>EmployeeJobWebService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
+    <ProjectReference Include="..\StaffSalaries.Model\StaffSalaries.Model.csproj">
+      <Project>{91FEA08D-0DDD-461A-8133-7080D66166B0}</Project>
+      <Name>StaffSalaries.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StaffSalaries.Repository\StaffSalaries.Repository.csproj">
+      <Project>{90675EDF-9905-4BAB-8451-24470212285F}</Project>
+      <Name>StaffSalaries.Repository</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StaffSalaries.Service\StaffSalaries.Service.csproj">
       <Project>{AA93F579-0AE9-4434-B718-BFB4CE376023}</Project>
       <Name>StaffSalaries.Service</Name>

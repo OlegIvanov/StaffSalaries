@@ -16,9 +16,9 @@ namespace StaffSalaries.WebService
     {
         private IEmployeeJobService _employeeJobService;
 
-        public EmployeeJobWebService(IEmployeeJobService employeeJobService)
+        public EmployeeJobWebService()
         {
-            _employeeJobService = employeeJobService;
+            _employeeJobService = BootStrapper.GetConfiguredContainer().GetInstance<IEmployeeJobService>();
         }
 
         [WebMethod]
