@@ -18,19 +18,20 @@ namespace StaffSalaries.WebUI
         [UrlProperty("*.xml")]
         public string XmlConfigFile { get; set; }
 
-        private readonly string _employeeListControlConfigurationKey = "Config";
+        private readonly string _configKey = "Config";
         private readonly string _sortByKey = "SortBy";
         private readonly string _orderByKey = "OrderBy";
+        private readonly string _pageIndex = "PageIndex";
 
         private IEmployeeListPresenter _presenter;
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            Configuration config = (Configuration) ViewState[_employeeListControlConfigurationKey];
+            Configuration config = (Configuration) ViewState[_configKey];
             if (config == null)
             {
                 config = ConfigurationFactory.GetConfiguration(XmlConfigFile);
-                ViewState[_employeeListControlConfigurationKey] = config;
+                ViewState[_configKey] = config;
             }
 
             _presenter = new EmployeeListPresenter(this, EmployeeListControlDataSourceResolverFactory.GetConfiguredIoCContainer(config).GetInstance<IEmployeeJobServiceFacade>());
@@ -39,7 +40,6 @@ namespace StaffSalaries.WebUI
             ddlJobList.SelectedIndexChanged += ddlJobList_SelectedIndexChanged;
 
             gvEmployeeList.RowCommand += gvEmployeeList_RowCommand;
-            gvEmployeeList.PageIndexChanging += gvEmployeeList_PageIndexChanging;
             gvEmployeeList.RowEditing += gvEmployeeList_RowEditing;
             gvEmployeeList.RowCancelingEdit += gvEmployeeList_RowCancelingEdit;
             gvEmployeeList.RowUpdating += gvEmployeeList_RowUpdating;
@@ -49,13 +49,14 @@ namespace StaffSalaries.WebUI
         {
             if (!IsPostBack)
             {
-                Configuration config = (Configuration) ViewState[_employeeListControlConfigurationKey];
+                Configuration config = (Configuration) ViewState[_configKey];
 
                 gvEmployeeList.PageSize = config.PageSize;
                 gvEmployeeList.Columns[2].Visible = config.IsEditable;
 
                 ViewState[_sortByKey] = EmployeesSortBy.None;
                 ViewState[_orderByKey] = EmployeesOrderBy.None;
+                ViewState[_pageIndex] = 0;
 
                 _presenter.DisplayJobList();
             }
@@ -100,13 +101,6 @@ namespace StaffSalaries.WebUI
             }
         }
 
-        protected void gvEmployeeList_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            DropEditMode();
-
-            gvEmployeeList.PageIndex = e.NewPageIndex;
-        }
-
         protected void gvEmployeeList_RowEditing(object sender, GridViewEditEventArgs e)
         {
             gvEmployeeList.EditIndex = e.NewEditIndex;
@@ -132,7 +126,7 @@ namespace StaffSalaries.WebUI
 
         private void DropPagination()
         {
-            gvEmployeeList.PageIndex = 0;
+            ViewState[_pageIndex] = 0;
         }
 
         private void DropEditMode()
@@ -162,14 +156,20 @@ namespace StaffSalaries.WebUI
             switch (orderBy)
             {
                 case EmployeesOrderBy.None:
+                {
                     ViewState[_orderByKey] = EmployeesOrderBy.Ascending;
                     break;
+                }
                 case EmployeesOrderBy.Ascending:
+                {
                     ViewState[_orderByKey] = EmployeesOrderBy.Descending;
                     break;
+                }
                 case EmployeesOrderBy.Descending:
+                {
                     ViewState[_orderByKey] = EmployeesOrderBy.Ascending;
                     break;
+                }
             }
         }
 
@@ -192,14 +192,14 @@ namespace StaffSalaries.WebUI
         {
             get
             {
-                Configuration config = (Configuration) ViewState[_employeeListControlConfigurationKey];
+                Configuration config = (Configuration) ViewState[_configKey];
                 return config.PageSize;
             }
         }
 
         public int PageIndex
         {
-            get { return gvEmployeeList.PageIndex; }
+            get { return (int) ViewState[_pageIndex]; }
         }
 
         public int EmployeeId
@@ -233,6 +233,44 @@ namespace StaffSalaries.WebUI
         {
             gvEmployeeList.DataSource = employeeList;
             gvEmployeeList.DataBind();
+
+            CreatePagingControl(totalNumberOfEmployeesWithSpecifiedJob);
+        }
+
+        private void CreatePagingControl(int totalNumberOfRows)
+        {
+            if (totalNumberOfRows > 0 && PageSize > 0)
+            {
+                int numberOfPages = totalNumberOfRows / PageSize;
+                if (totalNumberOfRows % PageSize > 0)
+                    numberOfPages++;
+
+                for (int i = 0; i < numberOfPages; i++)
+                {
+                    LinkButton lbPage = new LinkButton();
+                    lbPage.ID = "lbPage_" + i.ToString();
+                    lbPage.Text = (i + 1).ToString();
+                    lbPage.CommandArgument = i.ToString();
+                    lbPage.Click += lbPage_Click;
+
+                    pPagination.Controls.Add(lbPage);
+
+                    Literal lSpace = new Literal();
+                    lSpace.Text = "&nbsp;";
+
+                    pPagination.Controls.Add(lSpace);
+                }
+            }
+        }
+
+        protected void lbPage_Click(object sender, EventArgs e)
+        {
+            LinkButton lbPage = (LinkButton) sender;
+            ViewState[_pageIndex] = int.Parse(lbPage.CommandArgument);
+
+            DropEditMode();
+
+            _presenter.DisplayEmployeeList();
         }
     }
 }

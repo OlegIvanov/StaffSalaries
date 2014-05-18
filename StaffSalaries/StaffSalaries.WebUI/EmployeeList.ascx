@@ -3,7 +3,7 @@
 <span>Job Title:</span>
 <asp:DropDownList ID="ddlJobList" runat="server" AutoPostBack="true" DataValueField="Id" DataTextField="Name"></asp:DropDownList>
 <p>Employees/Salary:</p>
-<asp:GridView ID="gvEmployeeList" runat="server" AutoGenerateColumns="false" AllowPaging="true">
+<asp:GridView ID="gvEmployeeList" runat="server" AutoGenerateColumns="false">
     <Columns>
         <asp:TemplateField>
             <HeaderTemplate>
@@ -35,3 +35,5 @@
         <asp:CommandField ShowEditButton="true" />
     </Columns>
 </asp:GridView>
+<asp:Panel ID="pPagination" runat="server">
+</asp:Panel>
