@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using StaffSalaries.Facade;
@@ -254,6 +255,8 @@ namespace StaffSalaries.WebUI
                 if (totalNumberOfRows % PageSize > 0)
                     numberOfPages++;
 
+                int pageIndex = (int) ViewState[_pageIndexKey];
+
                 pPagination.Controls.Clear();
 
                 Literal lPagesLabel = new Literal();
@@ -275,6 +278,12 @@ namespace StaffSalaries.WebUI
                     lSpace.Text = "&nbsp;";
 
                     pPagination.Controls.Add(lSpace);
+
+                    if (i == pageIndex)
+                    {
+                        lbPage.ForeColor = ColorTranslator.FromHtml("#000000");
+                        lbPage.Font.Underline = false;
+                    }
                 }
             }
         }
