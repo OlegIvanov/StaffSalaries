@@ -255,6 +255,11 @@ namespace StaffSalaries.WebUI
                     numberOfPages++;
 
                 pPagination.Controls.Clear();
+                
+                Literal lPagesLabel = new Literal();
+                lPagesLabel.Text = "Pages:&nbsp;";
+
+                pPagination.Controls.Add(lPagesLabel);
 
                 for (int i = 0; i < numberOfPages; i++)
                 {

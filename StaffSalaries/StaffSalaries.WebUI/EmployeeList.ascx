@@ -36,5 +36,4 @@
     </Columns>
 </asp:GridView>
 <asp:Panel ID="pPagination" runat="server">
-    <asp:Literal runat="server" Text="Pages:"></asp:Literal>&nbsp;
 </asp:Panel>
