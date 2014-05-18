@@ -240,6 +240,8 @@ namespace StaffSalaries.WebUI
             gvEmployeeList.DataBind();
 
             ViewState[_totalNumberOfRowsKey] = totalNumberOfEmployeesWithSpecifiedJob;
+
+            CreatePagingControl();
         }
 
         private void CreatePagingControl()
@@ -251,6 +253,8 @@ namespace StaffSalaries.WebUI
                 int numberOfPages = totalNumberOfRows / PageSize;
                 if (totalNumberOfRows % PageSize > 0)
                     numberOfPages++;
+
+                pPagination.Controls.Clear();
 
                 for (int i = 0; i < numberOfPages; i++)
                 {
