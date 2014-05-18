@@ -76,16 +76,28 @@ namespace StaffSalaries.WebUI
 
         protected void gvEmployeeList_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "SortAndOrderByFullName")
-                SortAndOrderBy(EmployeesSortBy.FullName);
+            if (e.CommandName == "SortAndOrderByFullName" ||
+                e.CommandName == "SortAndOrderBySalary")
+            {
+                switch (e.CommandName)
+                {
+                    case "SortAndOrderByFullName":
+                    {
+                        SortAndOrderBy(EmployeesSortBy.FullName);
+                        break;
+                    }
+                    case "SortAndOrderBySalary":
+                    {
+                        SortAndOrderBy(EmployeesSortBy.Salary);
+                        break;
+                    }
+                }
 
-            if (e.CommandName == "SortAndOrderBySalary")
-                SortAndOrderBy(EmployeesSortBy.Salary);
+                DropEditMode();
+                DropPagination();
 
-            DropEditMode();
-            DropPagination();
-
-            _presenter.DisplayEmployeeList();
+                _presenter.DisplayEmployeeList();
+            }
         }
 
         protected void gvEmployeeList_PageIndexChanging(object sender, GridViewPageEventArgs e)
