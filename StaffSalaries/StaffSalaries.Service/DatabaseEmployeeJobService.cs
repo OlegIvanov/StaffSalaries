@@ -1,4 +1,5 @@
-﻿using StaffSalaries.Model.Employees;
+﻿using System.Linq;
+using StaffSalaries.Model.Employees;
 using StaffSalaries.Model.Jobs;
 using StaffSalaries.Service.DataContracts;
 
@@ -19,7 +20,7 @@ namespace StaffSalaries.Service
         {
             JobListResponse jobListResponse = new JobListResponse();
 
-            jobListResponse.Jobs = _jobRepository.FindAll();
+            jobListResponse.Jobs = _jobRepository.FindAll().ToArray();
 
             return jobListResponse;
         }
@@ -28,7 +29,7 @@ namespace StaffSalaries.Service
         {
             EmployeeListResponse employeeListResponse = new EmployeeListResponse();
 
-            employeeListResponse.Employees = _employeeRepository.FindBy(employeeListRequest.EmployeeListQuery);
+            employeeListResponse.Employees = _employeeRepository.FindBy(employeeListRequest.EmployeeListQuery).ToArray();
             employeeListResponse.TotalNumberOfEmployeesWithSpecifiedJob =
                 _employeeRepository.GetTotalNumberWith(employeeListRequest.EmployeeListQuery.JobId);
 

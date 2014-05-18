@@ -248,7 +248,7 @@ namespace StaffSalaries.WebUI
         private void CreatePagingControl()
         {
             int totalNumberOfRows = (int) ViewState[_totalNumberOfRowsKey];
-            int pageIndex = (int)ViewState[_pageIndexKey];
+            int pageIndex = (int) ViewState[_pageIndexKey];
 
             if (totalNumberOfRows > 0 && PageSize > 0)
             {
