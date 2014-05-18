@@ -19,9 +19,12 @@ namespace StaffSalaries.WebUI
         public string XmlConfigFile { get; set; }
 
         private readonly string _configKey = "Config";
+
         private readonly string _sortByKey = "SortBy";
         private readonly string _orderByKey = "OrderBy";
-        private readonly string _pageIndex = "PageIndex";
+
+        private readonly string _pageIndexKey = "PageIndex";
+        private readonly string _totalNumberOfRowsKey = "TotalNumberOfRows";
 
         private IEmployeeListPresenter _presenter;
 
@@ -56,7 +59,7 @@ namespace StaffSalaries.WebUI
 
                 ViewState[_sortByKey] = EmployeesSortBy.None;
                 ViewState[_orderByKey] = EmployeesOrderBy.None;
-                ViewState[_pageIndex] = 0;
+                ViewState[_pageIndexKey] = 0;
 
                 _presenter.DisplayJobList();
             }
@@ -126,7 +129,7 @@ namespace StaffSalaries.WebUI
 
         private void DropPagination()
         {
-            ViewState[_pageIndex] = 0;
+            ViewState[_pageIndexKey] = 0;
         }
 
         private void DropEditMode()
@@ -199,7 +202,7 @@ namespace StaffSalaries.WebUI
 
         public int PageIndex
         {
-            get { return (int) ViewState[_pageIndex]; }
+            get { return (int) ViewState[_pageIndexKey]; }
         }
 
         public int EmployeeId
@@ -234,11 +237,12 @@ namespace StaffSalaries.WebUI
             gvEmployeeList.DataSource = employeeList;
             gvEmployeeList.DataBind();
 
-            CreatePagingControl(totalNumberOfEmployeesWithSpecifiedJob);
+            ViewState[_totalNumberOfRowsKey] = totalNumberOfEmployeesWithSpecifiedJob;
         }
 
-        private void CreatePagingControl(int totalNumberOfRows)
+        private void CreatePagingControl()
         {
+            /*
             if (totalNumberOfRows > 0 && PageSize > 0)
             {
                 int numberOfPages = totalNumberOfRows / PageSize;
@@ -261,16 +265,19 @@ namespace StaffSalaries.WebUI
                     pPagination.Controls.Add(lSpace);
                 }
             }
+             */
         }
 
+        /*
         protected void lbPage_Click(object sender, EventArgs e)
         {
             LinkButton lbPage = (LinkButton) sender;
-            ViewState[_pageIndex] = int.Parse(lbPage.CommandArgument);
+            ViewState[_pageIndexKey] = int.Parse(lbPage.CommandArgument);
 
             DropEditMode();
 
             _presenter.DisplayEmployeeList();
         }
+         */
     }
 }
