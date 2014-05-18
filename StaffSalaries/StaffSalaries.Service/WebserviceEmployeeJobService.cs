@@ -1,30 +1,39 @@
-﻿using System;
-using StaffSalaries.Service.DataContracts;
+﻿using EJ = EmployeeJobWebServiceProxyTypesNamespace;
+using EmployeeListRequest = StaffSalaries.Service.DataContracts.EmployeeListRequest;
+using EmployeeListResponse = StaffSalaries.Service.DataContracts.EmployeeListResponse;
+using EmployeeUpdateSalaryRequest = StaffSalaries.Service.DataContracts.EmployeeUpdateSalaryRequest;
+using EmployeeUpdateSalaryResponse = StaffSalaries.Service.DataContracts.EmployeeUpdateSalaryResponse;
+using JobListResponse = StaffSalaries.Service.DataContracts.JobListResponse;
 
 namespace StaffSalaries.Service
 {
     public class WebserviceEmployeeJobService : IEmployeeJobService
     {
-        private string _webServiceUrl;
+        private EJ.EmployeeJobWebService _webServiceProxy;
 
         public WebserviceEmployeeJobService(string webServiceUrl)
         {
-            _webServiceUrl = webServiceUrl;
+            _webServiceProxy = new EJ.EmployeeJobWebService();
+            _webServiceProxy.Url = webServiceUrl;
         }
 
         public JobListResponse GetJobList()
         {
-            throw new NotImplementedException();
+            return _webServiceProxy.GetJobList().ConvertToJobListResponse();
         }
 
         public EmployeeListResponse GetEmployeeList(EmployeeListRequest employeeListRequest)
         {
-            throw new NotImplementedException();
+            EJ.EmployeeListRequest employeeListRequestProxy = employeeListRequest.ConvertToEmployeeListRequestProxy();
+
+            return _webServiceProxy.GetEmployeeList(employeeListRequestProxy).ConvertToEmployeeListResponse();
         }
 
         public EmployeeUpdateSalaryResponse EmployeeUpdateSalary(EmployeeUpdateSalaryRequest employeeUpdateSalaryRequest)
         {
-            throw new NotImplementedException();
+            EJ.EmployeeUpdateSalaryRequest employeeUpdateSalaryRequestProxy = employeeUpdateSalaryRequest.ConvertToEmployeeUpdateSalaryRequestProxy();
+
+            return _webServiceProxy.EmployeeUpdateSalary(employeeUpdateSalaryRequestProxy).ConvertToEmployeeUpdateSalaryResponse();
         }
     }
 }
