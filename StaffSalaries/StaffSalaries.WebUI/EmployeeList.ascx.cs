@@ -63,6 +63,8 @@ namespace StaffSalaries.WebUI
 
                 _presenter.DisplayJobList();
             }
+
+            CreatePagingControl();
         }
 
         protected void ddlJobList_DataBound(object sender, EventArgs e)
@@ -242,7 +244,8 @@ namespace StaffSalaries.WebUI
 
         private void CreatePagingControl()
         {
-            /*
+            int totalNumberOfRows = (int) ViewState[_totalNumberOfRowsKey];
+
             if (totalNumberOfRows > 0 && PageSize > 0)
             {
                 int numberOfPages = totalNumberOfRows / PageSize;
@@ -265,10 +268,8 @@ namespace StaffSalaries.WebUI
                     pPagination.Controls.Add(lSpace);
                 }
             }
-             */
         }
 
-        /*
         protected void lbPage_Click(object sender, EventArgs e)
         {
             LinkButton lbPage = (LinkButton) sender;
@@ -278,6 +279,5 @@ namespace StaffSalaries.WebUI
 
             _presenter.DisplayEmployeeList();
         }
-         */
     }
 }
