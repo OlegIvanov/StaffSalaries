@@ -251,7 +251,7 @@ namespace StaffSalaries.WebUI
 
             pPagination.Controls.Clear();
 
-            if (totalNumberOfRows > PageSize)
+            if (PageSize > 0 && totalNumberOfRows > PageSize)
             {
                 int numberOfPages = totalNumberOfRows / PageSize;
                 if (totalNumberOfRows % PageSize > 0)
