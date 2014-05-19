@@ -55,7 +55,6 @@ namespace StaffSalaries.WebUI
             {
                 Configuration config = (Configuration) ViewState[_configKey];
 
-                gvEmployeeList.PageSize = config.PageSize;
                 gvEmployeeList.Columns[2].Visible = config.IsEditable;
 
                 ViewState[_sortByKey] = EmployeesSortBy.None;
@@ -250,7 +249,7 @@ namespace StaffSalaries.WebUI
             int totalNumberOfRows = (int) ViewState[_totalNumberOfRowsKey];
             int pageIndex = (int) ViewState[_pageIndexKey];
 
-            if (totalNumberOfRows > 0 && PageSize > 0)
+            if (totalNumberOfRows > PageSize)
             {
                 int numberOfPages = totalNumberOfRows / PageSize;
                 if (totalNumberOfRows % PageSize > 0)
