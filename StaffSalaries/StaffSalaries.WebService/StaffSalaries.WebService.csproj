@@ -53,7 +53,6 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Employees.mdf" />
     <Content Include="EmployeeJobWebService.asmx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
