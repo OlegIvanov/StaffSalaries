@@ -249,13 +249,13 @@ namespace StaffSalaries.WebUI
             int totalNumberOfRows = (int) ViewState[_totalNumberOfRowsKey];
             int pageIndex = (int) ViewState[_pageIndexKey];
 
+            pPagination.Controls.Clear();
+
             if (totalNumberOfRows > PageSize)
             {
                 int numberOfPages = totalNumberOfRows / PageSize;
                 if (totalNumberOfRows % PageSize > 0)
                     numberOfPages++;
-
-                pPagination.Controls.Clear();
 
                 Literal lPagesLabel = new Literal();
                 lPagesLabel.Text = "Pages:&nbsp;";
